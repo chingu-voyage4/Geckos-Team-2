@@ -1,0 +1,27 @@
+.App {
+  display: grid;
+  grid-template-columns: 50px auto 50px;
+  grid-row-gap: 50px;
+  grid-column-gap: 150px
+}
+
+.App .title,
+.App section {
+  grid-column: 2 / 2
+}
+.App .title {
+  text-align: center;
+}
+
+.App section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between
+}
+
+.App_answer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+}
