@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+import HTML5Backend from 'react-dnd-html5-backend'
+import { DragDropContext } from 'react-dnd'
+
 import './App.css';
-import List from './components/List';
 import Answers from './components/Answers';
+import List from './components/List';
 
 
 class App extends Component {
@@ -27,7 +30,8 @@ class App extends Component {
           </div>
         </div>
       </div>
-  );
+    );
   }
 }
-export default App;
+
+export default DragDropContext(HTML5Backend)(App);
