@@ -3,10 +3,10 @@ import Answer from './Answer';
 const Answers = (props) => (
   <div>
     {
-      props.answers.map((text, index) => (
+      props.answers.map((answer, index) => (
         <Answer
-          key={text}
-          text={text}
+          key={answer}
+          text={answer}
           id={index}
         />
       ))

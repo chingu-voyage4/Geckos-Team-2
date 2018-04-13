@@ -9,15 +9,6 @@ const itemSource = {
   beginDrag(props) {
     const item = {answer: props.text, id:props.id}
     return item
-  },
-
-  endDrag(props, monitor, component) {
-    const element = monitor.getItem()
-    const dropResult = monitor.getDropResult()
-
-    if ( dropResult ) {
-      alert(JSON.stringify(element))
-    }
   }
 }
 
@@ -30,13 +21,13 @@ function collect(connect, monitor) {
 
 class Answer extends Component {
   render() {
-    const { isDragging, connectDragSource, answer } = this.props
+    const { isDragging, connectDragSource} = this.props
     const opacity = isDragging ? 0.4 : 1
 
     return connectDragSource (
       <div className="answer" style={{opacity}}>
         <p>{this.props.text}</p>
-        <img src= {this.props.text.value} alt={this.props.text} />
+        <img src= '' alt={this.props.text} />
       </div>
     )
   }
