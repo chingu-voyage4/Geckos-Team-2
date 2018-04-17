@@ -6,8 +6,10 @@ import Answers from './components/Answers';
 
 class App extends Component {
   state = {
-    items: ['VGA', 'HDMI','USB-A'],
-    answers: ['vga', 'usb-a','hdmi']
+    items: ['VGA', 'HDMI','USB-A','DVI','USB-B','USB-MINI','USB-MICRO','FIREWIRE','DB-9'],
+    answers:['./images/vga.jpg','./images/usb-mini.jpg','./images/db-9.jpg',
+    './images/dvi.jpg','./images/firewire.jpg','./images/hdmi.jpg',
+    './images/usb-a.jpg' ,'./images/usb-b.jpg','./images/usb-micro.jpg']
   }
   render() {
     return (

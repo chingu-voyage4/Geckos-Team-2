@@ -10,14 +10,16 @@ h2 {
   font-size: 2rem;
   text-align: center;
 }
+.answer img {
+  color: red;
+  height: 140px;
+  width: 140px;
+}
 .answer {
   background-color: white;
   border: dashed 1px #2D3E50;
-  color: #2D3E50;
-  height: 10rem;
-  margin: 2rem;
-  padding: 2rem;
-  width: 10rem;
+  height: 15rem;
+  width: 15rem;
 }
 .answer__list {
     color: white;
