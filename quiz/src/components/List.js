@@ -9,6 +9,8 @@ const List = (props) => (
             key={item}
             itemText={item}
             count={index + 1}
+            dropAnswer={props.dropAnswer}
+            handleDrop={props.handleDrop(index)}
           />
         ))
       }

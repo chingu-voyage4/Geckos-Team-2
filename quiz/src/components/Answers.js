@@ -3,10 +3,11 @@ import Answer from './Answer';
 const Answers = (props) => (
   <div>
     {
-      props.answers.map((text) => (
+      props.answers.map((image, index) => (
         <Answer
-          key={text}
-          text={text}
+          key={index}
+          image={image}
+          id={index}
         />
       ))
     }
