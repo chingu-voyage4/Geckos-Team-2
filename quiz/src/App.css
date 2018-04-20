@@ -13,12 +13,14 @@ h2 {
 .answer {
   background-color: white;
   border: dashed 1px #2D3E50;
-  color: #2D3E50;
   cursor: move;
-  height: 10rem;
-  margin: 2rem;
-  padding: 2rem;
-  width: 10rem;
+  height: 15rem;
+  width: 15rem;
+}
+
+.answer img {
+  width: 140px;
+  height: 140px;
 }
 .answer__list {
     color: white;

@@ -7,7 +7,7 @@ const Types = {
 
 const itemSource = {
   beginDrag(props) {
-    const item = {answer: props.text, id:props.id}
+    const item = {answer: props.image, id:props.id}
     return item
   }
 }
@@ -21,13 +21,12 @@ function collect(connect, monitor) {
 
 class Answer extends Component {
   render() {
-    const { isDragging, connectDragSource} = this.props
+    const { isDragging, connectDragSource, image} = this.props
     const opacity = isDragging ? 0.4 : 1
 
     return connectDragSource (
       <div className="answer" style={{opacity}}>
-        <p>{this.props.text}</p>
-        <img src= '' alt={this.props.text} />
+        <img src={image} alt='' />
       </div>
     )
   }

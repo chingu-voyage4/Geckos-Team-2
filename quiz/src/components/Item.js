@@ -31,7 +31,7 @@ class Item extends Component {
 
         {
           dropAnswer
-          ? (<Answer text={dropAnswer}/>)
+          ? (<Answer image={dropAnswer}/>)
           : (<button className='answer__space'>put answer here</button>)
         }
       </div>

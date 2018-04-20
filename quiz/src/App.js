@@ -6,14 +6,35 @@ import './App.css';
 import Answers from './components/Answers';
 import Item from './components/Item'
 
+// Import images
+import vga      from './components/images/vga.jpg'
+import hdmi     from './components/images/hdmi.jpg'
+import usbA     from './components/images/usb-a.jpg'
+import dvi      from './components/images/dvi.jpg'
+import usbB     from './components/images/usb-b.jpg'
+import usbMini  from './components/images/usb-mini.jpg'
+import usbMicro from './components/images/usb-micro.jpg'
+import firewire  from './components/images/firewire.jpg'
+import db9      from './components/images/db-9.jpg'
+
 class App extends Component {
   state = {
     items: [
-      {answer: 'VGA', dropAnswer: null},
-      {answer: 'HDMI', dropAnswer: null},
-      {answer: 'USB-A', dropAnswer: null},
+      {answer: 'VGA',       dropAnswer: null},
+      {answer: 'HDMI',      dropAnswer: null},
+      {answer: 'USB-A',     dropAnswer: null},
+      {answer: 'DVI',       dropAnswer: null},
+      {answer: 'USB-B',     dropAnswer: null},
+      {answer: 'USB-MINI',  dropAnswer: null},
+      {answer: 'USB-MICRO', dropAnswer: null},
+      {answer: 'FIREWIRE',  dropAnswer: null},
+      {answer: 'DB-9',      dropAnswer: null},
     ],
-    answers: ['vga', 'usb-a','hdmi'],
+    answers: [
+      vga,      hdmi,    usbA,
+      dvi,      usbB,    usbMini,
+      usbMicro, firewire, db9
+    ],
   }
 
   handleDrop = (index, element) => {
