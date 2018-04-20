@@ -39,17 +39,12 @@ class App extends Component {
 
   handleDrop = (index, element) => {
     let updateItems = this.state.items
-    let newAnswers = this.state.answers
-
-    // Delete element in answers array
-    newAnswers.splice(element.id, 1)
 
     // Add the select answer in dropAnswer in array items
     updateItems[index].dropAnswer = element.answer
 
     this.setState({
-      items: updateItems,
-      answers: newAnswers
+      items: updateItems
     })
   }
 
