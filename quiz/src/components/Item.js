@@ -22,8 +22,12 @@ function collect (connect, monitor) {
 
 class Item extends Component {
   render () {
-    const { canDrop, isOver, connectDropTarget, dropAnswer } = this.props
+    const { canDrop, isOver, connectDropTarget, dropAnswer, clicked, isCorrect } = this.props
     const isActive = canDrop && isOver
+
+    const answerIsCorrect = isCorrect
+      ? 'correct'
+      : 'incorrect'
 
     return connectDropTarget(
       <div className="item">
@@ -33,6 +37,15 @@ class Item extends Component {
           dropAnswer
           ? (<Answer image={dropAnswer}/>)
           : (<button className='answer__space'>put answer here</button>)
+        }
+
+        {
+          clicked &&
+            (
+              isCorrect
+                ? (<div className={answerIsCorrect}>Correct</div>)
+                : (<div className={answerIsCorrect}>Incorrect</div>)
+            )
         }
       </div>
     )
