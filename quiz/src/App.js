@@ -20,21 +20,29 @@ import db9      from './components/images/db-9.jpg'
 class App extends Component {
   state = {
     items: [
-      {answer: 'VGA',       dropAnswer: null},
-      {answer: 'HDMI',      dropAnswer: null},
-      {answer: 'USB-A',     dropAnswer: null},
-      {answer: 'DVI',       dropAnswer: null},
-      {answer: 'USB-B',     dropAnswer: null},
-      {answer: 'USB-MINI',  dropAnswer: null},
-      {answer: 'USB-MICRO', dropAnswer: null},
-      {answer: 'FIREWIRE',  dropAnswer: null},
-      {answer: 'DB-9',      dropAnswer: null},
+      {answer: 'VGA',       dropAnswer: null, isCorrect: null},
+      {answer: 'HDMI',      dropAnswer: null, isCorrect: null},
+      {answer: 'USB-A',     dropAnswer: null, isCorrect: null},
+      {answer: 'DVI',       dropAnswer: null, isCorrect: null},
+      {answer: 'USB-B',     dropAnswer: null, isCorrect: null},
+      {answer: 'USB-MINI',  dropAnswer: null, isCorrect: null},
+      {answer: 'USB-MICRO', dropAnswer: null, isCorrect: null},
+      {answer: 'FIREWIRE',  dropAnswer: null, isCorrect: null},
+      {answer: 'DB-9',      dropAnswer: null, isCorrect: null},
     ],
     answers: [
-      vga,      hdmi,    usbA,
-      dvi,      usbB,    usbMini,
-      usbMicro, firewire, db9
+      {name: 'VGA',       image: vga},
+      {name: 'HDMI',      image: hdmi},
+      {name: 'USB-A',     image: usbA},
+      {name: 'DVI',       image: dvi},
+      {name: 'USB-B',     image: usbB},
+      {name: 'USB-MINI',  image: usbMini},
+      {name: 'USB-MICRO', image: usbMicro},
+      {name: 'FIREWIRE',  image: firewire},
+      {name: 'DB-9',      image: db9},
     ],
+
+    buttonClicked: false
   }
 
   handleDrop = (index, element) => {
@@ -42,9 +50,23 @@ class App extends Component {
 
     // Add the select answer in dropAnswer in array items
     updateItems[index].dropAnswer = element.answer
+    updateItems[index].isCorrect =
+      updateItems[index].answer === element.text
+        ? true
+        : false
 
     this.setState({
       items: updateItems
+    })
+  }
+
+  handleScore = () => {
+    let clicked = this.state.buttonClicked
+
+    clicked = true
+
+    this.setState({
+      buttonClicked: clicked
     })
   }
 
@@ -59,12 +81,14 @@ class App extends Component {
           <div className='item__list'>
             <h2>Items to Match</h2>
             {
-              this.state.items.map(({ answer, dropAnswer }, index) => (
+              this.state.items.map(({ answer, dropAnswer, isCorrect }, index) => (
                 <Item
                   itemText={answer}
                   dropAnswer={dropAnswer}
                   handleDrop={item => this.handleDrop(index, item)}
                   key={index}
+                  clicked={this.state.buttonClicked}
+                  isCorrect={isCorrect}
                 />
               ))
             }
@@ -74,8 +98,9 @@ class App extends Component {
             <Answers
               answers={this.state.answers}
             />
+            <button class="button" onClick={this.handleScore}>Check Answers</button>
           </div>
-        </div>
+          </div>
       </div>
     );
   }
