@@ -70,6 +70,28 @@ class App extends Component {
     })
   }
 
+  handleClearAnswers = () => {
+
+    const clearAnswers = this.state.items.map( element => {
+      const newElement = {...element}
+
+      if (newElement.dropAnswer !== null && newElement.isCorrect !== null) {
+        newElement.dropAnswer = null
+        newElement.isCorrect = null
+      }
+
+      return newElement
+    })
+
+    let buttonFalse = this.state.buttonClicked
+    buttonFalse = false
+
+    this.setState({
+      items: clearAnswers,
+      buttonClicked: buttonFalse
+    })
+  }
+
   render() {
     return (
       <div className="app">
@@ -98,9 +120,12 @@ class App extends Component {
             <Answers
               answers={this.state.answers}
             />
-            <button class="button" onClick={this.handleScore}>Check Answers</button>
+            <div className="answer__actions">
+              <button className="button" onClick={this.handleScore}>Check Answers</button>
+              <button className="button" onClick={this.handleClearAnswers}>Clear Answers</button>
+            </div>
           </div>
-          </div>
+        </div>
       </div>
     );
   }
