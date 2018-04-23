@@ -69,7 +69,21 @@ class App extends Component {
       buttonClicked: clicked
     })
   }
-
+  handleClearAnswers = () => {
+    this.setState({
+      items: [
+        {answer: 'VGA',       dropAnswer: null, isCorrect: null},
+        {answer: 'HDMI',      dropAnswer: null, isCorrect: null},
+        {answer: 'USB-A',     dropAnswer: null, isCorrect: null},
+        {answer: 'DVI',       dropAnswer: null, isCorrect: null},
+        {answer: 'USB-B',     dropAnswer: null, isCorrect: null},
+        {answer: 'USB-MINI',  dropAnswer: null, isCorrect: null},
+        {answer: 'USB-MICRO', dropAnswer: null, isCorrect: null},
+        {answer: 'FIREWIRE',  dropAnswer: null, isCorrect: null},
+        {answer: 'DB-9',      dropAnswer: null, isCorrect: null},
+      ]
+    })
+  }
   render() {
     return (
       <div className="app">
@@ -98,7 +112,9 @@ class App extends Component {
             <Answers
               answers={this.state.answers}
             />
-            <button class="button" onClick={this.handleScore}>Check Answers</button>
+            <button className="button" onClick={this.handleScore}>Check Answers</button>
+            <div></div>
+            <button className="button" onClick={this.handleClearAnswers}>Clear Answers</button>
           </div>
           </div>
       </div>
